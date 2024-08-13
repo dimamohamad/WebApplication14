@@ -1,0 +1,34 @@
+﻿@model IEnumerable<WebApplication14.Models.Class1.admin>
+
+@{
+    ViewBag.Title = "cart";
+}
+
+<h2>Shop</h2>
+
+<div class="row">
+    @if (Model != null && Model.Any())
+    {
+        foreach (var product in Model)
+        {
+            <div class="col-md-4">
+                <div class="card" style="width: 18rem; margin-bottom: 20px;">
+                    <img src="@product.image" class="card-img-top" alt="@product.name" style="height: 200px; object-fit: cover;" />
+                    <div class="card-body">
+                        <h5 class="card-title">@product.name</h5>
+                        <p class="card-text">Price: @product.price JOD</p>
+                       
+                    </div>
+                </div>
+            </div>
+        }
+    }
+    else
+    {
+        <p>No products available.</p>
+    }
+</div>
+
+@*<p>
+    @Html.ActionLink("Back to Add Product", "AddProduct", "Products")
+</p>*@
